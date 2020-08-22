@@ -59,7 +59,7 @@ class WTypeTyper:
         return shutil.which('wtype') is not None
 
     def get_active_window(self) -> str:
-        pass
+        return "not possible with wtype"
 
     def type_characters(self, characters: str, active_window: str) -> None:
         run([
@@ -70,7 +70,12 @@ class WTypeTyper:
     def insert_from_clipboard(self, active_window: str) -> None:
         run([
             'wtype',
-            'key',
-            '--clearmodifiers',
-            'Shift+Insert'
+            '-M',
+            'shift',
+            '-P',
+            'Insert',
+            '-p',
+            'Insert',
+            '-m',
+            'shift'
         ])
